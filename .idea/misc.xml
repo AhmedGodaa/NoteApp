@@ -4,7 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_add_button.xml" value="0.155" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_done_button.xml" value="0.1" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_search.xml" value="0.233" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_subtitle_indicator.xml" value="0.1" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/ic_back.xml" value="0.1" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/ic_done.xml" value="0.1" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_create_note.xml" value="0.19165378670788252" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
       </map>
     </option>
