@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
-    tools:context=".CreateNoteActivity">
+    tools:context=".acitivies.CreateNoteActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -109,6 +109,7 @@
                 app:layout_constraintTop_toTopOf="@id/inputNoteSubtitle" />
 
             <EditText
+                android:id="@+id/inputNoteText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_12sdp"
