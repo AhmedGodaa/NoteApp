@@ -94,7 +94,7 @@
                 android:textColor="@color/textHint"
                 android:textColorHint="@color/textHint"
                 android:textSize="@dimen/_13ssp"
-                app:layout_constraintEnd_toEndOf="view"
+                app:layout_constraintEnd_toEndOf="@+id/textDateTime"
                 app:layout_constraintStart_toEndOf="@id/viewSubtitleIndicator"
                 app:layout_constraintTop_toBottomOf="@id/textDateTime" />
 

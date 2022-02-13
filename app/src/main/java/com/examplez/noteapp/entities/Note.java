@@ -7,19 +7,21 @@ import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
-@Entity(tableName = "note")
+@Entity(tableName = "notes")
 
 public class Note implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id;
     @ColumnInfo(name = "title")
     private String title;
-    @ColumnInfo(name = "database")
-    private String database;
+    @ColumnInfo(name = "date_time")
+    private String dateTime;
     @ColumnInfo(name = "subtitle")
     private String subtitle;
     @ColumnInfo(name = "note_text")
     private String noteText;
+    @ColumnInfo(name = "database")
+    private String database;
     @ColumnInfo(name = "image_path")
     private String imagePath;
     @ColumnInfo(name = "color")
@@ -42,6 +44,14 @@ public class Note implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
     }
 
     public String getDatabase() {

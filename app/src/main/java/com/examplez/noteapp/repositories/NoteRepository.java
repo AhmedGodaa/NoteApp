@@ -3,10 +3,6 @@ package com.examplez.noteapp.repositories;
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
-import androidx.room.Delete;
-import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
-import androidx.room.Query;
 
 import com.examplez.noteapp.Dao.NoteDao;
 import com.examplez.noteapp.databases.NoteDatabase;
@@ -25,7 +21,6 @@ public class NoteRepository {
 
     public LiveData<List<Note>> getAllNotes() {
         return noteDao.getAllNotes();
-
     }
 
 

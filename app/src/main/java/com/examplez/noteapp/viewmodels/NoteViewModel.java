@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.examplez.noteapp.databases.NoteDatabase;
 import com.examplez.noteapp.entities.Note;
 import com.examplez.noteapp.repositories.NoteRepository;
 
@@ -19,6 +18,8 @@ public class NoteViewModel extends AndroidViewModel {
 
     public NoteViewModel(@NonNull Application application) {
         super(application);
+        noteRepository = new NoteRepository(application);
+
     }
 
     public LiveData<List<Note>> getAllNotes() {
@@ -28,17 +29,14 @@ public class NoteViewModel extends AndroidViewModel {
 
 
     public void insertNote(Note note) {
-        NoteDatabase.databaseWriteExecutor.execute(() -> {
-            noteRepository.insertNote(note);
-        });
+        noteRepository.insertNote(note);
 
 
     }
 
     public void deleteNote(Note note) {
-        NoteDatabase.databaseWriteExecutor.execute(() -> {
-            noteRepository.deleteNote(note);
-        });
+        noteRepository.deleteNote(note);
+
 
     }
 
