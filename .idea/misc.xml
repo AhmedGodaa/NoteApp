@@ -5,7 +5,13 @@
       <map>
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_add_button.xml" value="0.155" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_done_button.xml" value="0.1" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_miscellaneous.xml" value="0.149" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_note.xml" value="0.1215" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_note_color_1.xml" value="0.149" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_note_color_2.xml" value="0.149" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_note_color_3.xml" value="0.149" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_note_color_4.xml" value="0.149" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_note_color_5.xml" value="0.149" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_search.xml" value="0.233" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_subtitle_indicator.xml" value="0.1" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/ic_back.xml" value="0.1" />
@@ -13,6 +19,7 @@
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_create_note.xml" value="0.19165378670788252" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/item_container_note.xml" value="0.22" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/layout_miscellaneous.xml" value="0.25052083333333336" />
       </map>
     </option>
   </component>

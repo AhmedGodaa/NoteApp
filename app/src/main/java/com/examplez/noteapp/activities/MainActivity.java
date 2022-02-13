@@ -1,11 +1,10 @@
-package com.examplez.noteapp.acitivies;
-
+package com.examplez.noteapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -20,7 +19,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NoteListener {
     private ActivityMainBinding binding;
-    public static final int REQUEST_CODE_ADD_NOTE = 1;
     private List<Note> noteList;
     private NoteAdapter noteAdapter;
     private NoteViewModel noteViewModel;
@@ -36,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
 
     }
 
+
     private void setRecyclerView() {
         noteList = new ArrayList<>();
         noteAdapter = new NoteAdapter(noteList, this);
@@ -45,19 +44,18 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
 
     private void newViewModel() {
         noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
-        noteViewModel.getAllNotes().observe(this, new Observer<List<Note>>() {
-            @Override
-            public void onChanged(List<Note> notes) {
-                noteAdapter.setNotes(notes);
-
-            }
-        });
-
-
+        noteViewModel.getAllNotes().observe(this, notes -> noteAdapter.setNotes(notes));
     }
 
     private void setListeners() {
-        binding.imageAddNoteMain.setOnClickListener(v -> startActivityForResult(new Intent(this, CreateNoteActivity.class), REQUEST_CODE_ADD_NOTE));
+        binding.imageAddNoteMain.setOnClickListener(v -> openActivity(this, CreateNoteActivity.class));
+
+    }
+
+    private void openActivity(Context context,Class activity) {
+        Intent intent = new Intent(context, activity);
+        startActivity(intent);
+
     }
 
 
@@ -65,4 +63,6 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
     public void onNoteClicked(Note note) {
 
     }
+
+
 }

@@ -1,15 +1,17 @@
-package com.examplez.noteapp.acitivies;
+package com.examplez.noteapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.examplez.noteapp.R;
 import com.examplez.noteapp.databinding.ActivityCreateNoteBinding;
 import com.examplez.noteapp.entities.Note;
 import com.examplez.noteapp.viewmodels.NoteViewModel;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,6 +20,7 @@ import java.util.Locale;
 public class CreateNoteActivity extends AppCompatActivity {
     private ActivityCreateNoteBinding binding;
     private NoteViewModel noteViewModel;
+    private String selectedNoteColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +31,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         setListeners();
         binding.textDateTime.setText(new SimpleDateFormat("EEEE, dd MMMM yyyy HH:mm a", Locale.getDefault()).format(new Date()));
 
-
+        initMiscellaneous();
     }
 
     private void setListeners() {
@@ -45,6 +48,7 @@ public class CreateNoteActivity extends AppCompatActivity {
             Toast.makeText(this, "Note can't be empty!", Toast.LENGTH_SHORT).show();
             return;
         }
+
         final Note note = new Note();
         note.setTitle(binding.inputNoteTitle.getText().toString());
         note.setSubtitle(binding.inputNoteSubtitle.getText().toString());
@@ -52,10 +56,21 @@ public class CreateNoteActivity extends AppCompatActivity {
         note.setDateTime(binding.textDateTime.getText().toString());
 
         noteViewModel.insertNote(note);
-        Intent intent = new Intent();
-        setResult(RESULT_OK, intent);
         finish();
 
 
+    }
+
+    private void initMiscellaneous() {
+        final LinearLayout layoutMiscellaneous = findViewById(R.id.layoutMiscellaneous);
+        final BottomSheetBehavior<LinearLayout> bottomSheetBehavior = BottomSheetBehavior.from(layoutMiscellaneous);
+        layoutMiscellaneous.findViewById(R.id.textMiscellaneous).setOnClickListener(v -> {
+            if (bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+            } else {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+
+            }
+        });
     }
 }
