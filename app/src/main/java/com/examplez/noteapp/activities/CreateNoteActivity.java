@@ -30,6 +30,7 @@ public class CreateNoteActivity extends AppCompatActivity {
     private NoteViewModel noteViewModel;
     private String selectedNoteColor = "#333333";
     private static final int REQUEST_CODE_STORAGE_PERMISSION = 1;
+    private static final int REQUEST_CODE_STORAGE_IMAGE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
