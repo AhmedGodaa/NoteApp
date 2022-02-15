@@ -96,7 +96,6 @@
             app:tint="@color/white" />
 
         <ImageView
-            android:id="@+id/addImage"
             android:layout_width="@dimen/_22sdp"
             android:layout_height="@dimen/_23sdp"
             android:layout_marginStart="@dimen/_15sdp"
