@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -40,6 +41,7 @@ public class CreateNoteActivity extends AppCompatActivity {
     private NoteViewModel noteViewModel;
     private String selectedNoteColor = "#333333";
     private static final int REQUEST_CODE_STORAGE_PERMISSION = 1;
+    private String selectedImagePath = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,7 @@ public class CreateNoteActivity extends AppCompatActivity {
 //                            Fixed format only change Thous parameters
                             binding.imageNote.setVisibility(View.VISIBLE);
                             binding.imageNote.setImageBitmap(bitmap);
+                            selectedImagePath = getPathFromUri(imageUri);
 //                            End
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
@@ -96,6 +99,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         note.setSubtitle(binding.inputNoteSubtitle.getText().toString());
         note.setNoteText(binding.inputNoteText.getText().toString());
         note.setDateTime(binding.textDateTime.getText().toString());
+        note.setImagePath(selectedImagePath);
         note.setColor(selectedNoteColor);
         noteViewModel.insertNote(note);
         finish();
@@ -216,6 +220,20 @@ public class CreateNoteActivity extends AppCompatActivity {
                 Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    private String getPathFromUri(Uri contentUri) {
+        String filePath;
+        Cursor cursor = getContentResolver().query(contentUri, null, null, null, null);
+        if (cursor == null) {
+            filePath = contentUri.getPath();
+        } else {
+            cursor.moveToFirst();
+            int index = cursor.getColumnIndex("_data");
+            filePath = cursor.getString(index);
+            cursor.close();
+        }
+        return filePath;
     }
 
 }

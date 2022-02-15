@@ -1,5 +1,6 @@
 package com.examplez.noteapp.adapters;
 
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
@@ -74,6 +75,13 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
         public void setNoteData(Note model, int position) {
             binding.textTitle.setText(model.getTitle());
             binding.textDateTime.setText(model.getDateTime());
+
+            if(model.getImagePath()!= null){
+                binding.imageNote.setImageBitmap(BitmapFactory.decodeFile(model.getImagePath()));
+                binding.imageNote.setVisibility(View.VISIBLE);
+            }else {
+                binding.imageNote.setVisibility(View.GONE);
+            }
 
             if (model.getSubtitle().trim().isEmpty()) {
                 binding.textSubtitle.setVisibility(View.GONE);
