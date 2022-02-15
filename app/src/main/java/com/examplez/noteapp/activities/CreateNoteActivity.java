@@ -1,5 +1,7 @@
 package com.examplez.noteapp.activities;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -7,9 +9,15 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.view.View;
 import android.widget.ImageView;
 import android.os.Bundle;
 import android.widget.LinearLayout;
@@ -21,6 +29,8 @@ import com.examplez.noteapp.entities.Note;
 import com.examplez.noteapp.viewmodels.NoteViewModel;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -30,7 +40,6 @@ public class CreateNoteActivity extends AppCompatActivity {
     private NoteViewModel noteViewModel;
     private String selectedNoteColor = "#333333";
     private static final int REQUEST_CODE_STORAGE_PERMISSION = 1;
-    private static final int REQUEST_CODE_STORAGE_IMAGE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +47,34 @@ public class CreateNoteActivity extends AppCompatActivity {
         binding = ActivityCreateNoteBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
-        setListeners();
         binding.textDateTime.setText(new SimpleDateFormat("EEEE, dd MMMM yyyy HH:mm a", Locale.getDefault()).format(new Date()));
-
+        setListeners();
         initMiscellaneous();
         setSubtitleIndicatorColor();
     }
+
+
+    private final ActivityResultLauncher<Intent> pickImage = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK) {
+                    if (result.getData() != null) {
+                        Uri imageUri = result.getData().getData();
+                        try {
+                            InputStream inputStream = getContentResolver().openInputStream(imageUri);
+                            Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+//                            Fixed format only change Thous parameters
+                            binding.imageNote.setVisibility(View.VISIBLE);
+                            binding.imageNote.setImageBitmap(bitmap);
+//                            End
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+
+    );
 
     private void setListeners() {
         binding.imageBack.setOnClickListener(v -> onBackPressed());
@@ -73,7 +104,6 @@ public class CreateNoteActivity extends AppCompatActivity {
     }
 
     private void initMiscellaneous() {
-
         final LinearLayout layoutMiscellaneous = findViewById(R.id.layoutMiscellaneous);
         final BottomSheetBehavior<LinearLayout> bottomSheetBehavior = BottomSheetBehavior.from(layoutMiscellaneous);
         layoutMiscellaneous.findViewById(R.id.textMiscellaneous).setOnClickListener(v -> {
@@ -145,6 +175,7 @@ public class CreateNoteActivity extends AppCompatActivity {
 
 
         });
+
         layoutMiscellaneous.findViewById(R.id.addImage).setOnClickListener(v -> {
             bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             if (ContextCompat.checkSelfPermission(
@@ -156,7 +187,9 @@ public class CreateNoteActivity extends AppCompatActivity {
                         REQUEST_CODE_STORAGE_PERMISSION
                 );
             } else {
-                selectImage();
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                pickImage.launch(intent);
 
             }
 
@@ -170,19 +203,19 @@ public class CreateNoteActivity extends AppCompatActivity {
 
     }
 
-    private void selectImage() {
-
-    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == REQUEST_CODE_STORAGE_PERMISSION && grantResults.length > 0) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                selectImage();
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                pickImage.launch(intent);
             } else {
                 Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
             }
         }
     }
+
 }
