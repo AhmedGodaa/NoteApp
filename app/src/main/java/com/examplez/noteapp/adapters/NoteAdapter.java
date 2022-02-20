@@ -48,6 +48,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     @Override
     public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
         holder.setNoteData(data.get(position), position);
+        holder.binding.layoutNote.setOnClickListener(v -> modelListener.onNoteClicked(data.get(position), position));
     }
 
     @Override
@@ -76,11 +77,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
             binding.textTitle.setText(model.getTitle());
             binding.textDateTime.setText(model.getDateTime());
 
-            if(model.getImagePath()!= null){
-                binding.imageNote.setImageBitmap(BitmapFactory.decodeFile(model.getImagePath()));
-                binding.imageNote.setVisibility(View.VISIBLE);
-            }else {
-                binding.imageNote.setVisibility(View.GONE);
+            if (model.getImagePath() != null) {
+                binding.imageNoteContainer.setImageBitmap(BitmapFactory.decodeFile(model.getImagePath()));
+                binding.imageNoteContainer.setVisibility(View.VISIBLE);
+            } else {
+                binding.imageNoteContainer.setVisibility(View.GONE);
             }
 
             if (model.getSubtitle().trim().isEmpty()) {

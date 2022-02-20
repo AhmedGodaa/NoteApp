@@ -4,10 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Pair;
+import android.view.View;
+import android.widget.LinearLayout;
 
+import com.examplez.noteapp.R;
 import com.examplez.noteapp.adapters.NoteAdapter;
 import com.examplez.noteapp.databinding.ActivityMainBinding;
 import com.examplez.noteapp.entities.Note;
@@ -22,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
     private List<Note> noteList;
     private NoteAdapter noteAdapter;
     private NoteViewModel noteViewModel;
+    private int noteClickedPosition = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
 
     }
 
-    private void openActivity(Context context,Class activity) {
+    private void openActivity(Context context, Class activity) {
         Intent intent = new Intent(context, activity);
         startActivity(intent);
 
@@ -60,7 +66,21 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
 
 
     @Override
-    public void onNoteClicked(Note note) {
+    public void onNoteClicked(Note note, int position) {
+        noteClickedPosition = position;
+        LinearLayout layoutNote = findViewById(R.id.layoutNote);
+        Intent intent = new Intent(getApplicationContext(), CreateNoteActivity.class);
+        intent.putExtra("isViewOrUpdate", true);
+        intent.putExtra("note", note);
+
+        Pair[] pairs = new Pair[3];
+        pairs[0] = new Pair<View, String>(layoutNote.findViewById(R.id.imageNoteContainer), "imageTransition");
+        pairs[1] = new Pair<View, String>(layoutNote.findViewById(R.id.imageNoteContainer), "titleTransition");
+        pairs[2] = new Pair<View, String>(layoutNote.findViewById(R.id.imageNoteContainer), "subtitleTransition");
+
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
+        startActivity(intent, options.toBundle());
+
 
     }
 

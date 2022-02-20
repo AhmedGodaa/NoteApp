@@ -48,6 +48,8 @@ public class CreateNoteActivity extends AppCompatActivity {
     private String selectedImagePath = "";
     private static final int REQUEST_CODE_STORAGE_PERMISSION = 1;
     private AlertDialog dialogAddUrl;
+    private Note alreadyAvailableNote;
+    private LinearLayout layoutMiscellaneous;
 
 
     @Override
@@ -59,7 +61,15 @@ public class CreateNoteActivity extends AppCompatActivity {
         binding.textDateTime.setText(new SimpleDateFormat("EEEE, dd MMMM yyyy HH:mm a", Locale.getDefault()).format(new Date()));
         setListeners();
         initMiscellaneous();
+
         setSubtitleIndicatorColor();
+
+
+        if (getIntent().getBooleanExtra("isViewOrUpdate", false)) {
+            alreadyAvailableNote = (Note) getIntent().getSerializableExtra("note");
+            viewOrUpdate();
+
+        }
     }
 
 
@@ -83,8 +93,44 @@ public class CreateNoteActivity extends AppCompatActivity {
                     }
                 }
             }
-
     );
+
+    private void viewOrUpdate() {
+        binding.inputNoteTitle.setText(alreadyAvailableNote.getTitle());
+        binding.inputNoteSubtitle.setText(alreadyAvailableNote.getSubtitle());
+        binding.inputNoteText.setText(alreadyAvailableNote.getNoteText());
+        binding.textDateTime.setText(alreadyAvailableNote.getDateTime());
+
+        if (alreadyAvailableNote != null && alreadyAvailableNote.getColor() != null && !alreadyAvailableNote.getColor().trim().isEmpty()) {
+            switch (alreadyAvailableNote.getColor()) {
+                case "#FDBE3B":
+                    layoutMiscellaneous.findViewById(R.id.viewColor2).performClick();
+                    break;
+                case "#FF4842":
+                    layoutMiscellaneous.findViewById(R.id.viewColor3).performClick();
+                    break;
+                case "#3A52Fc":
+                    layoutMiscellaneous.findViewById(R.id.viewColor4).performClick();
+                    break;
+                case "#000000":
+                    layoutMiscellaneous.findViewById(R.id.viewColor5).performClick();
+                    break;
+
+            }
+        }
+
+
+        if (alreadyAvailableNote.getImagePath() != null && !alreadyAvailableNote.getImagePath().trim().isEmpty()) {
+            binding.imageNote.setImageBitmap(BitmapFactory.decodeFile(alreadyAvailableNote.getImagePath()));
+            binding.imageNote.setVisibility(View.VISIBLE);
+            selectedImagePath = alreadyAvailableNote.getImagePath();
+        }
+        if (alreadyAvailableNote.getWebLink() != null && !alreadyAvailableNote.getWebLink().trim().isEmpty()) {
+            binding.textDateTime.setText(alreadyAvailableNote.getWebLink());
+            binding.layoutWebUrl.setVisibility(View.VISIBLE);
+        }
+
+    }
 
     private void setListeners() {
         binding.imageBack.setOnClickListener(v -> onBackPressed());
@@ -109,17 +155,27 @@ public class CreateNoteActivity extends AppCompatActivity {
         note.setImagePath(selectedImagePath);
         note.setColor(selectedNoteColor);
         noteViewModel.insertNote(note);
+
         if (binding.layoutWebUrl.getVisibility() == View.VISIBLE) {
             note.setWebLink(binding.textWebUrl.getText().toString());
         }
+/*      If the id already exist on database dao will update the note
+        because we already defined ( @Insert(onConflict = OnConflictStrategy.REPLACE) )      */
+        if (alreadyAvailableNote != null) {
+            note.setId(alreadyAvailableNote.getId());
+        }
+
+
         finish();
 
 
     }
 
     private void initMiscellaneous() {
-        final LinearLayout layoutMiscellaneous = findViewById(R.id.layoutMiscellaneous);
+
+        layoutMiscellaneous = findViewById(R.id.layoutMiscellaneous);
         final BottomSheetBehavior<LinearLayout> bottomSheetBehavior = BottomSheetBehavior.from(layoutMiscellaneous);
+
         layoutMiscellaneous.findViewById(R.id.textMiscellaneous).setOnClickListener(v -> {
             if (bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_EXPANDED) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
@@ -134,6 +190,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         final ImageView imageColor3 = layoutMiscellaneous.findViewById(R.id.imageColor3);
         final ImageView imageColor4 = layoutMiscellaneous.findViewById(R.id.imageColor4);
         final ImageView imageColor5 = layoutMiscellaneous.findViewById(R.id.imageColor5);
+
         layoutMiscellaneous.findViewById(R.id.viewColor1).setOnClickListener(v -> {
             selectedNoteColor = "#333333";
             imageColor1.setImageResource(R.drawable.ic_done);
@@ -189,6 +246,7 @@ public class CreateNoteActivity extends AppCompatActivity {
 
 
         });
+
 
         layoutMiscellaneous.findViewById(R.id.addImage).setOnClickListener(v -> {
             bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
