@@ -61,7 +61,6 @@ public class CreateNoteActivity extends AppCompatActivity {
         binding.textDateTime.setText(new SimpleDateFormat("EEEE, dd MMMM yyyy HH:mm a", Locale.getDefault()).format(new Date()));
         setListeners();
         initMiscellaneous();
-
         setSubtitleIndicatorColor();
 
 
@@ -70,6 +69,8 @@ public class CreateNoteActivity extends AppCompatActivity {
             viewOrUpdate();
 
         }
+
+
     }
 
 
@@ -86,6 +87,7 @@ public class CreateNoteActivity extends AppCompatActivity {
                             binding.imageNote.setVisibility(View.VISIBLE);
                             binding.imageNote.setImageBitmap(bitmap);
                             selectedImagePath = getPathFromUri(imageUri);
+                            binding.imageRemoveImage.setVisibility(View.VISIBLE);
 //                            End
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
@@ -123,6 +125,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         if (alreadyAvailableNote.getImagePath() != null && !alreadyAvailableNote.getImagePath().trim().isEmpty()) {
             binding.imageNote.setImageBitmap(BitmapFactory.decodeFile(alreadyAvailableNote.getImagePath()));
             binding.imageNote.setVisibility(View.VISIBLE);
+            binding.imageRemoveImage.setVisibility(View.VISIBLE);
             selectedImagePath = alreadyAvailableNote.getImagePath();
         }
         if (alreadyAvailableNote.getWebLink() != null && !alreadyAvailableNote.getWebLink().trim().isEmpty()) {
@@ -135,6 +138,19 @@ public class CreateNoteActivity extends AppCompatActivity {
     private void setListeners() {
         binding.imageBack.setOnClickListener(v -> onBackPressed());
         binding.imageSave.setOnClickListener(v -> saveNote());
+        binding.imageRemoveWebUrl.setOnClickListener(v -> {
+            binding.textWebUrl.setText(null);
+            binding.layoutWebUrl.setVisibility(View.GONE);
+        });
+
+        binding.imageRemoveImage.setOnClickListener(v -> {
+            binding.imageNote.setImageBitmap(null);
+            binding.imageNote.setVisibility(View.GONE);
+            binding.imageRemoveImage.setVisibility(View.GONE);
+            selectedImagePath = "";
+        });
+
+
     }
 
     private void saveNote() {
