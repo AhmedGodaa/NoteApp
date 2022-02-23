@@ -3,6 +3,8 @@ package com.examplez.noteapp.adapters;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,21 +16,21 @@ import com.examplez.noteapp.databinding.ItemContainerNoteBinding;
 import com.examplez.noteapp.entities.Note;
 import com.examplez.noteapp.listeners.NoteListener;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder> {
     private List<Note> data;
     private NoteListener modelListener;
+    private Timer timer;
+    private List<Note> noteSource;
 
     public NoteAdapter(List<Note> data, NoteListener modelListener) {
         this.data = data;
         this.modelListener = modelListener;
-    }
-
-
-    public void setNotes(List<Note> notes) {
-        data = notes;
-        notifyDataSetChanged();
+        noteSource = data;
     }
 
     @NonNull
@@ -98,6 +100,45 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
                 gradientDrawable.setColor(Color.parseColor("#333333"));
             }
 
+        }
+    }
+
+    public void searchNotes(final String searchKeyWord) {
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                if (searchKeyWord.trim().isEmpty()) {
+                    data = noteSource;
+                } else {
+                    ArrayList<Note> temp = new ArrayList<>();
+                    for (Note note : noteSource) {
+                        if (note.getTitle().toLowerCase().contains(searchKeyWord.toLowerCase())
+                                || note.getTitle().toLowerCase().contains(searchKeyWord.toLowerCase())
+                                || note.getSubtitle().toLowerCase().contains(searchKeyWord.toLowerCase())) {
+                            temp.add(note);
+                        }
+                    }
+                    data = temp;
+
+                }
+                new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @Override
+                    public void run() {
+                        notifyDataSetChanged();
+
+
+                    }
+                });
+
+            }
+        }, 500);
+
+    }
+
+    public void cancelTimer() {
+        if (timer != null) {
+            timer.cancel();
         }
     }
 }

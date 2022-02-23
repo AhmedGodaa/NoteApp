@@ -8,6 +8,8 @@ import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Pair;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -36,21 +38,38 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
         setContentView(binding.getRoot());
         setListeners();
         setRecyclerView();
-        newViewModel();
+
+        binding.inputSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                noteAdapter.cancelTimer();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (noteList.size() != 0) {
+                    noteAdapter.searchNotes(editable.toString());
+                }
+            }
+        });
 
     }
 
 
     private void setRecyclerView() {
         noteList = new ArrayList<>();
-        noteAdapter = new NoteAdapter(noteList, this);
-        binding.notesRecyclerView.setAdapter(noteAdapter);
-        binding.notesRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
-    }
-
-    private void newViewModel() {
         noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
-        noteViewModel.getAllNotes().observe(this, notes -> noteAdapter.setNotes(notes));
+        noteViewModel.getAllNotes().observe(this, notes -> {
+            noteList = notes;
+            noteAdapter = new NoteAdapter(notes, this);
+            binding.notesRecyclerView.setAdapter(noteAdapter);
+            binding.notesRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+        });
     }
 
     private void setListeners() {
