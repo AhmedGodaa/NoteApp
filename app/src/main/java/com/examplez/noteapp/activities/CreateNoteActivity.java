@@ -48,6 +48,7 @@ public class CreateNoteActivity extends AppCompatActivity {
     private String selectedImagePath = "";
     private static final int REQUEST_CODE_STORAGE_PERMISSION = 1;
     private AlertDialog dialogAddUrl;
+    private AlertDialog dialogDeleteNote;
     private Note alreadyAvailableNote;
     private LinearLayout layoutMiscellaneous;
 
@@ -68,6 +69,11 @@ public class CreateNoteActivity extends AppCompatActivity {
             alreadyAvailableNote = (Note) getIntent().getSerializableExtra("note");
             viewOrUpdate();
 
+        }
+
+        if (alreadyAvailableNote != null) {
+            layoutMiscellaneous.findViewById(R.id.layoutDeleteNote).setVisibility(View.VISIBLE);
+            layoutMiscellaneous.findViewById(R.id.layoutDeleteNote).setOnClickListener(v -> showDeleteNoteDialog());
         }
 
 
@@ -264,7 +270,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         });
 
 
-        layoutMiscellaneous.findViewById(R.id.addImage).setOnClickListener(v -> {
+        layoutMiscellaneous.findViewById(R.id.layoutAddImage).setOnClickListener(v -> {
             bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             if (ContextCompat.checkSelfPermission(
                     getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE
@@ -352,11 +358,29 @@ public class CreateNoteActivity extends AppCompatActivity {
                 }
             });
 
-            view.findViewById(R.id.textCancel).setOnClickListener(v -> dialogAddUrl.dismiss());
 
         }
         dialogAddUrl.show();
 
+    }
+
+    private void showDeleteNoteDialog() {
+        if (dialogDeleteNote == null) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(CreateNoteActivity.this);
+            View view = LayoutInflater.from(this).inflate(R.layout.layout_delete_note, findViewById(R.id.layoutDeleteNoteContainer));
+            builder.setView(view);
+            dialogDeleteNote = builder.create();
+
+            if (dialogDeleteNote.getWindow() != null) {
+                dialogDeleteNote.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+            }
+            view.findViewById(R.id.textCancel).setOnClickListener(v -> dialogDeleteNote.dismiss());
+            view.findViewById(R.id.textDelete).setOnClickListener(v -> {
+                noteViewModel.deleteNote(alreadyAvailableNote);
+                finish();
+            });
+            dialogDeleteNote.show();
+        }
     }
 
 }
