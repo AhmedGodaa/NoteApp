@@ -164,7 +164,7 @@
             android:layout_height="@dimen/_22sdp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_image"
-            app:tint="@color/whiteDark" />
+            app:tint="@color/gray_100" />
 
         <TextView
             android:layout_width="match_parent"
@@ -173,7 +173,7 @@
             android:fontFamily="@font/ubuntu_medium"
             android:includeFontPadding="false"
             android:text="@string/add_image"
-            android:textColor="@color/whiteDark"
+            android:textColor="@color/gray_100"
             android:textSize="@dimen/_12ssp" />
     </LinearLayout>
 
@@ -194,7 +194,7 @@
             android:layout_height="@dimen/_22sdp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_web"
-            app:tint="@color/whiteDark" />
+            app:tint="@color/gray_100" />
 
         <TextView
             android:layout_width="match_parent"
@@ -203,7 +203,7 @@
             android:fontFamily="@font/ubuntu_medium"
             android:includeFontPadding="false"
             android:text="@string/add_url"
-            android:textColor="@color/whiteDark"
+            android:textColor="@color/gray_100"
             android:textSize="@dimen/_12ssp" />
 
 

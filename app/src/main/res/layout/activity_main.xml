@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="@color/black_200"
     tools:context=".activities.MainActivity">
 
     <TextView
@@ -56,7 +56,7 @@
             android:includeFontPadding="false"
             android:inputType="text"
             android:textColor="@color/white"
-            android:textColorHint="@color/textHint"
+            android:textColorHint="@color/gray_50"
             android:textSize="@dimen/_13ssp" />
 
     </LinearLayout>
@@ -79,7 +79,7 @@
         android:id="@+id/layoutQuickActions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/grayLight"
+        android:background="@color/black_300"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="@dimen/_15sdp"
@@ -125,7 +125,7 @@
         app:layout_constraintBottom_toTopOf="@id/layoutQuickActions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/layoutQuickActions"
-        app:tint="@color/gray" />
+        app:tint="@color/black_200" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="@color/black_200"
     tools:context=".activities.CreateNoteActivity">
 
     <ScrollView
@@ -60,7 +60,7 @@
                 android:includeFontPadding="false"
                 android:inputType="text"
                 android:textColor="@color/white"
-                android:textColorHint="@color/textHint"
+                android:textColorHint="@color/gray_50"
                 android:textSize="@dimen/_16ssp"
                 android:transitionName="titleTransition"
                 app:layout_constraintTop_toBottomOf="@id/imageBack" />
@@ -92,8 +92,8 @@
                 android:inputType="text"
                 android:paddingTop="@dimen/_8sdp"
                 android:paddingBottom="@dimen/_8sdp"
-                android:textColor="@color/textHint"
-                android:textColorHint="@color/textHint"
+                android:textColor="@color/gray_50"
+                android:textColorHint="@color/gray_50"
                 android:textSize="@dimen/_13ssp"
                 android:transitionName="subtitleTransition"
                 app:layout_constraintEnd_toEndOf="@+id/textDateTime"
@@ -188,7 +188,7 @@
                 android:inputType="textMultiLine"
                 android:minHeight="@dimen/_100sdp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/textHint"
+                android:textColorHint="@color/gray_50"
                 android:textSize="@dimen/_13ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layoutWebUrl" />

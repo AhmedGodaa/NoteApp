@@ -18,7 +18,7 @@
         android:src="@drawable/ic_web"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/whiteDark" />
+        app:tint="@color/gray_100" />
 
     <TextView
         android:layout_width="0dp"
@@ -28,7 +28,7 @@
         android:fontFamily="@font/ubuntu_bold"
         android:includeFontPadding="false"
         android:text="@string/add_url"
-        android:textColor="@color/whiteDark"
+        android:textColor="@color/gray_100"
         android:textSize="@dimen/_14ssp"
         app:layout_constraintBottom_toBottomOf="@id/imageAddUrl"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +53,7 @@
         android:paddingStart="8sp"
         android:paddingEnd="@dimen/_8sdp"
         android:textColor="@color/white"
-        android:textColorHint="@color/textHint"
+        android:textColorHint="@color/gray_50"
         android:textSize="@dimen/_13ssp"
         app:layout_constraintTop_toBottomOf="@id/imageAddUrl" />
 

@@ -6,19 +6,33 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
 
-    <color name="black">#000000</color>
-    <color name="grayDark">#222222</color>
-    <color name="gray">#292929</color>
-    <color name="grayLight">#333333</color>
-    <color name="textHint">#7B7B7B</color>
-    <color name="whiteDark">#BDBDBD</color>
+    <color name="black_50">#000000</color>
+    <color name="black_100">#222222</color>
+    <color name="black_200">#292929</color>
+    <color name="black_300">#333333</color>
+
+    <color name="gray_50">#7B7B7B</color>
+    <color name="gray_100">#BDBDBD</color>
+
+    <!-- Component -->
     <color name="white">#FFFFFFFF</color>
-
-
-    <color name="yellow">#FDBE3B</color>
-    <color name="orange">#FF4842</color>
+    <color name="yellow">#FFCC0A</color>
+    <color name="red">#ED4136</color>
+    <color name="Aqua">#2DE6EA</color>
     <color name="blue">#3A52Fc</color>
-    <color name="noColor">#333333</color>
+
+    <!--    Background    -->
+    <color name="backgroundPrimaryDark">#090622</color>
+    <color name="backgroundSecondaryDark">#13102B</color>
+
+    <color name="backgroundPrimaryLight">#FFFFFF</color>
+    <color name="backgroundSecondaryLight">#F5F6FA</color>
+
+    <!--    Text    -->
+    <color name="textPrimaryLight">#0F0A39</color>
+    <color name="textPrimaryDark">#FFFFFF</color>
+
+    <color name="textSecondary">#7B7890</color>
 
 
 </resources>
