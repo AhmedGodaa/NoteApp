@@ -16,6 +16,7 @@
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_note_color_5.xml" value="0.149" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_search.xml" value="0.233" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_subtitle_indicator.xml" value="0.1" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/button_shape_one.xml" value="0.1955" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/ic_back.xml" value="0.1" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/ic_done.xml" value="0.1" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/ic_logo.xml" value="0.2265" />
@@ -26,7 +27,7 @@
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/background_add_url.xml" value="0.3333333333333333" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/fragment_welcome_first.xml" value="0.1875" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/fragment_welcome_second.xml" value="0.1734375" />
-        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/fragment_welcome_third.xml" value="0.11041666666666666" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/fragment_welcome_third.xml" value="0.22" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/item_container_note.xml" value="0.22" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/item_view_pager_welcome.xml" value="0.22826086956521738" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/layout_add_url.xml" value="0.17552083333333332" />
