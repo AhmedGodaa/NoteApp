@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.examplez.noteapp.R;
 import com.examplez.noteapp.activities.SignInActivity;
+import com.examplez.noteapp.activities.SignUpActivity;
 import com.examplez.noteapp.databinding.FragmentWelcomeFirstBinding;
 import com.examplez.noteapp.databinding.FragmentWelcomeThirdBinding;
 
@@ -66,8 +68,14 @@ public class WelcomeFragmentThird extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            getContext().getTheme().applyStyle(R.style.Theme_Night, true);
+        } else {
+            getContext().getTheme().applyStyle(R.style.Theme_Light, true);
+        }
         binding = FragmentWelcomeThirdBinding.inflate(getLayoutInflater());
         binding.btnSignIn.setOnClickListener(v -> openActivity(getContext(), SignInActivity.class));
+        binding.btnSignUp.setOnClickListener(v -> openActivity(getContext(), SignUpActivity.class));
         return binding.getRoot();
     }
 

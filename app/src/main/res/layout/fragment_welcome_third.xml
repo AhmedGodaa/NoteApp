@@ -28,18 +28,17 @@
         android:textSize="@dimen/_15ssp"
         app:layout_constraintWidth_max="wrap" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSignIn"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45sdp"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_20sdp"
         android:layout_marginEnd="@dimen/_20sdp"
-        android:background="@drawable/button_shape_one"
+        android:background="@drawable/shape_button_one"
         android:text="@string/sign_in"
         android:textAllCaps="false"
-        android:textColor="@color/blue"
-        app:backgroundTint="?attr/background_color_primary" />
+        android:textColor="@color/blue" />
 
     <Button
         android:id="@+id/btnSignUp"
@@ -48,7 +47,7 @@
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_5sdp"
         android:layout_marginEnd="@dimen/_20sdp"
-        android:background="@drawable/button_shape_one"
+        android:background="@drawable/shape_button_one"
         android:text="@string/sign_up"
         android:textAllCaps="false"
         android:textColor="@color/white"

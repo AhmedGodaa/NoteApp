@@ -2,6 +2,7 @@ package com.examplez.noteapp.fragments;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -60,6 +61,11 @@ public class WelcomeFragmentSecond extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            getContext().getTheme().applyStyle(R.style.Theme_Night, true);
+        } else {
+            getContext().getTheme().applyStyle(R.style.Theme_Light, true);
+        }
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_welcome_second, container, false);
     }

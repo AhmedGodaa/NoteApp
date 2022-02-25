@@ -68,6 +68,7 @@ public class WelcomeFragmentFirst extends Fragment {
         } else {
             getContext().getTheme().applyStyle(R.style.Theme_Light, true);
         }
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_welcome_first, container, false);
     }

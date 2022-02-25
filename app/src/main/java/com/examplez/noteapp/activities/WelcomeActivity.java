@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.examplez.noteapp.R;
@@ -27,15 +29,25 @@ public class WelcomeActivity extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
         binding = ActivityWelcomeBinding.inflate(getLayoutInflater());
-        setContentView(R.layout.activity_welcome);
+        setContentView(binding.getRoot());
         viewPager = findViewById(R.id.viewPager);
-
-
         dotIndicator = findViewById(R.id.dotIndicator);
         tabAccessorAdapter = new TabAccessorAdapter(getSupportFragmentManager());
         viewPager.setAdapter(tabAccessorAdapter);
         dotIndicator.setViewPager(viewPager);
+        setListeners();
 
+
+    }
+
+    private void setListeners() {
+        binding.btnSkip.setOnClickListener(v -> openActivity(this, SignInActivity.class));
+
+    }
+
+    private void openActivity(Context context, Class activity) {
+        Intent intent = new Intent(context, activity);
+        startActivity(intent);
 
     }
 }
