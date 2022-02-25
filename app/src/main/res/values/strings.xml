@@ -23,4 +23,10 @@
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Sign Up</string>
     <string name="welcome">Welcome!</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="or">- - - - - Or - - - - -</string>
+    <string name="google">Google</string>
+    <string name="facebook">Facebook</string>
 </resources>

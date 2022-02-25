@@ -24,6 +24,7 @@
     <!--    Background    -->
     <color name="backgroundPrimaryDark">#090622</color>
     <color name="backgroundSecondaryDark">#13102B</color>
+    <color name="transparent">#00000000</color>
 
     <color name="backgroundPrimaryLight">#FFFFFF</color>
     <color name="backgroundSecondaryLight">#F5F6FA</color>

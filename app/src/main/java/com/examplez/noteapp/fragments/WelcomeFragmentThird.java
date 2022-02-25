@@ -1,5 +1,7 @@
 package com.examplez.noteapp.fragments;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.examplez.noteapp.R;
+import com.examplez.noteapp.activities.SignInActivity;
+import com.examplez.noteapp.databinding.FragmentWelcomeFirstBinding;
+import com.examplez.noteapp.databinding.FragmentWelcomeThirdBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +30,7 @@ public class WelcomeFragmentThird extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private FragmentWelcomeThirdBinding binding;
 
     public WelcomeFragmentThird() {
         // Required empty public constructor
@@ -60,7 +66,15 @@ public class WelcomeFragmentThird extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_welcome_third, container, false);
+        binding = FragmentWelcomeThirdBinding.inflate(getLayoutInflater());
+        binding.btnSignIn.setOnClickListener(v -> openActivity(getContext(), SignInActivity.class));
+        return binding.getRoot();
+    }
+
+    private void openActivity(Context context, Class activity) {
+        Intent intent = new Intent(context, activity);
+        startActivity(intent);
+
+
     }
 }
