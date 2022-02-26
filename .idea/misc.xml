@@ -24,7 +24,10 @@
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/shape_button_one.xml" value="0.223" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/shape_button_two.xml" value="0.223" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/shape_edit_text_one.xml" value="0.207" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/shape_radius.xml" value="0.223" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_create_note.xml" value="0.22895622895622897" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_forget_password.xml" value="0.22" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_forgot_password.xml" value="0.25052083333333336" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_sign_in.xml" value="0.25052083333333336" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />

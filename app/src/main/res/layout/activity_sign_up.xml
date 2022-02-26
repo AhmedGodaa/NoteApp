@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,28 +11,25 @@
         android:id="@+id/textSignUp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_90sdp"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="@dimen/_20sdp"
-        android:layout_marginTop="@dimen/_115sdp"
-        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_100sdp"
         android:fontFamily="@font/ubuntu_bold"
         android:gravity="center"
         android:text="@string/sign_up"
         android:textColor="?attr/text_color_primary"
-        android:textSize="@dimen/_30ssp" />
+        android:textSize="@dimen/_30ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputEmailLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_below="@id/textSignUp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="@dimen/_20sdp"
-        android:background="@drawable/shape_edit_text_one"
-
         android:hint="@string/enter_email"
         android:imeOptions="actionNext"
         android:importantForAutofill="no"
@@ -47,6 +44,7 @@
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textSignUp"
         app:passwordToggleTint="@color/blue">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -63,7 +61,6 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_below="@id/inputEmailLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="15dp"
@@ -83,6 +80,7 @@
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputEmailLayout"
         app:passwordToggleTint="@color/blue">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -99,7 +97,6 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_below="@id/inputPasswordLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="15dp"
@@ -119,6 +116,7 @@
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/inputPasswordLayout"
         app:passwordToggleTint="@color/blue">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -134,7 +132,6 @@
         android:id="@+id/btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_42sdp"
-        android:layout_below="@id/inputConfirmPasswordLayout"
         android:layout_marginStart="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginEnd="@dimen/_20sdp"
@@ -142,26 +139,31 @@
         android:text="@string/sign_up"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        app:backgroundTint="@color/blue" />
+        app:backgroundTint="@color/blue"
+        app:layout_constraintTop_toBottomOf="@id/inputConfirmPasswordLayout" />
 
     <TextView
         android:id="@+id/textOr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnSignUp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_15sdp"
-        android:layout_marginBottom="@dimen/_15sdp"
         android:text="@string/or"
         android:textColor="?attr/text_color_secondary"
-        android:textSize="@dimen/_15ssp" />
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSignUp" />
 
     <LinearLayout
-        android:id="@+id/layoutSocialMediaIntegration"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
+
         android:layout_height="@dimen/_50sdp"
-        android:layout_below="@id/textOr"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textOr">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnFacebook"
@@ -175,7 +177,7 @@
             android:drawableStart="@drawable/ic_facebook"
             android:gravity="center"
             android:paddingStart="@dimen/_15sdp"
-            android:paddingEnd="@dimen/_20sdp"
+            android:paddingEnd="@dimen/_1sdp"
             android:text="@string/facebook"
             android:textAllCaps="false"
             android:textColor="@color/white"
@@ -193,29 +195,31 @@
             android:drawableStart="@drawable/ic_google_plus"
             android:gravity="center"
             android:paddingStart="@dimen/_15sdp"
-            android:paddingEnd="@dimen/_20sdp"
-            android:text="@string/facebook"
+            android:paddingEnd="@dimen/_1sdp"
+            android:text="@string/google"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:backgroundTint="@color/red" />
 
     </LinearLayout>
 
-    <RelativeLayout
+
+    <LinearLayout
         android:id="@+id/layoutHaveAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/layoutSocialMediaIntegration"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <TextView
             android:id="@+id/textHaveAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_15sdp"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:layout_marginEnd="@dimen/_5sdp"
-            android:layout_marginBottom="@dimen/_15sdp"
             android:text="@string/already_have_account"
             android:textColor="?attr/text_color_secondary"
             android:textSize="@dimen/_10ssp" />
@@ -223,18 +227,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:layout_marginEnd="@dimen/_15sdp"
-            android:layout_marginBottom="@dimen/_15sdp"
-            android:layout_toEndOf="@id/textHaveAccount"
+            android:layout_marginStart="@dimen/_15sdp"
             android:fontFamily="@font/ubuntu_bold"
             android:text="@string/sign_in"
             android:textColor="@color/blue"
             android:textSize="@dimen/_11ssp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </RelativeLayout>
-
-
-</RelativeLayout>

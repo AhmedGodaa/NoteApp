@@ -28,12 +28,12 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void setListeners() {
-        binding.layoutHaveAccount.setOnClickListener(v -> openActivity(this, SignInActivity.class));
+        binding.layoutHaveAccount.setOnClickListener(v -> openActivity(SignInActivity.class));
 
     }
 
-    private void openActivity(Context context, Class activity) {
-        Intent intent = new Intent(context, activity);
+    private void openActivity( Class<?> activity) {
+        Intent intent = new Intent(getApplicationContext(), activity);
         startActivity(intent);
 
     }
