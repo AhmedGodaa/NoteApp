@@ -24,7 +24,7 @@
         android:layout_marginStart="@dimen/_25sdp"
         android:layout_marginEnd="@dimen/_20sdp"
         android:text="@string/Message3"
-        android:textColor="?attr/text_color_secondary"
+        android:textColor="@color/textSecondary"
         android:textSize="@dimen/_15ssp"
         app:layout_constraintWidth_max="wrap" />
 

@@ -19,7 +19,7 @@
         <item name="background_color_primary">@color/backgroundPrimaryLight</item>
         <item name="background_color_secondary">@color/backgroundSecondaryLight</item>
         <item name="text_color_primary">@color/textPrimaryLight</item>
-        <item name="text_color_secondary">@color/textSecondary</item>
+
 
     </style>
 </resources>

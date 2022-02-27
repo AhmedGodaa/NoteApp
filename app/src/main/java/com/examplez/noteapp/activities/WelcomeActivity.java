@@ -1,11 +1,10 @@
 package com.examplez.noteapp.activities;
 
+import static com.examplez.noteapp.activities.Godaa.implementTheme;
+import static com.examplez.noteapp.activities.Godaa.openActivity;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.examplez.noteapp.R;
@@ -22,14 +21,11 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-            setTheme(R.style.Theme_Night);
-        } else {
-            setTheme(R.style.Theme_Light);
-        }
+        implementTheme(WelcomeActivity.this);
         super.onCreate(savedInstanceState);
         binding = ActivityWelcomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         viewPager = findViewById(R.id.viewPager);
         dotIndicator = findViewById(R.id.dotIndicator);
         tabAccessorAdapter = new TabAccessorAdapter(getSupportFragmentManager());
@@ -41,13 +37,8 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void setListeners() {
-        binding.btnSkip.setOnClickListener(v -> openActivity(SignInActivity.class));
-
+        binding.btnSkip.setOnClickListener(v -> openActivity(getApplicationContext(), SignInActivity.class));
     }
 
-    private void openActivity(Class<?> activity) {
-        Intent intent = new Intent(getApplicationContext(), activity);
-        startActivity(intent);
 
-    }
 }

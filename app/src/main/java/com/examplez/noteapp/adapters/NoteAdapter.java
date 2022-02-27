@@ -49,7 +49,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
-        holder.setNoteData(data.get(position), position);
+        holder.setNoteData(data.get(position));
         holder.binding.layoutNote.setOnClickListener(v -> modelListener.onNoteClicked(data.get(position), position));
     }
 
@@ -75,7 +75,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
         }
 
-        public void setNoteData(Note model, int position) {
+        public void setNoteData(Note model) {
             binding.textTitle.setText(model.getTitle());
             binding.textDateTime.setText(model.getDateTime());
 

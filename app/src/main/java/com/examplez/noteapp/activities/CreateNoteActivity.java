@@ -64,7 +64,6 @@ public class CreateNoteActivity extends AppCompatActivity {
         initMiscellaneous();
         setSubtitleIndicatorColor();
 
-
         if (getIntent().getBooleanExtra("isViewOrUpdate", false)) {
             alreadyAvailableNote = (Note) getIntent().getSerializableExtra("note");
             viewOrUpdate();

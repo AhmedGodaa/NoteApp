@@ -1,7 +1,6 @@
 package com.examplez.noteapp.adapters;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -21,14 +20,11 @@ public class TabAccessorAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                WelcomeFragmentFirst welcomeFragmentFirst = new WelcomeFragmentFirst();
-                return welcomeFragmentFirst;
+                return new WelcomeFragmentFirst();
             case 1:
-                WelcomeFragmentSecond welcomeFragmentSecond = new WelcomeFragmentSecond();
-                return welcomeFragmentSecond;
+                return new WelcomeFragmentSecond();
             case 2:
-                WelcomeFragmentThird welcomeFragmentThird = new WelcomeFragmentThird();
-                return welcomeFragmentThird;
+                return new WelcomeFragmentThird();
 
             default:
                 return null;
@@ -42,17 +38,5 @@ public class TabAccessorAdapter extends FragmentPagerAdapter {
         return 3;
     }
 
-    @Nullable
-    @Override
-    public CharSequence getPageTitle(int position) {
-        switch (position) {
-            case 0:
-                return "Login";
-            case 1:
-                return "Register";
-            default:
-                return null;
-        }
 
-    }
 }

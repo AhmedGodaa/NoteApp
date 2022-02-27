@@ -1,6 +1,7 @@
 package com.examplez.noteapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Godaa.implementTheme(MainActivity.this);
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

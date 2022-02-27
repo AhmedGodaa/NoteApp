@@ -35,4 +35,7 @@
     <string name="enter_your_email">Enter your email address to reset your password.</string>
     <string name="send">Send</string>
     <string name="verify_message">Check your email address, we have sent you the code at phtuonganh@gmail.com</string>
+    <string name="notebook">Notebook</string>
+    <string name="_0">(0)</string>
+    <string name="all_notes">All Notes</string>
 </resources>

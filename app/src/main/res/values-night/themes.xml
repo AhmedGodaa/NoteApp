@@ -17,6 +17,5 @@
         <item name="background_color_primary">@color/backgroundPrimaryDark</item>
         <item name="background_color_secondary">@color/backgroundSecondaryDark</item>
         <item name="text_color_primary">@color/textPrimaryDark</item>
-        <item name="text_color_secondary">@color/textSecondary</item>
     </style>
 </resources>
