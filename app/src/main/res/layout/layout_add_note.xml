@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutAddNoteDialog"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:id="@+id/layoutStartWriting"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_135sdp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/shape_radius"
+        android:backgroundTint="?attr/background_color_primary"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/imageAddUrl"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_30ssp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_leaf"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/blue" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/start_writing"
+            android:textColor="?attr/text_color_primary"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageAddUrl" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutChooseTemplate"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_135sdp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/_10sdp"
+        android:background="@drawable/shape_radius"
+        android:backgroundTint="?attr/background_color_primary"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutStartWriting">
+
+
+        <ImageView
+
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_30ssp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_article"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/ubuntu_medium"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/choose_a_template"
+            android:textColor="?attr/text_color_primary"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageAddUrl" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

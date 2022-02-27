@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.examplez.noteapp.databinding.ItemContainerNoteBinding;
+import com.examplez.noteapp.databinding.ItemContainerNoteMainBinding;
 import com.examplez.noteapp.entities.Note;
 import com.examplez.noteapp.listeners.NoteListener;
 
@@ -21,42 +22,56 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder> {
+public class NoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<Note> data;
     private NoteListener modelListener;
     private Timer timer;
     private List<Note> noteSource;
+    private Boolean VIEW_TYPE_MAIN;
 
-    public NoteAdapter(List<Note> data, NoteListener modelListener) {
+    public NoteAdapter(List<Note> data, NoteListener modelListener, Boolean isViewMain) {
         this.data = data;
         this.modelListener = modelListener;
         noteSource = data;
+        VIEW_TYPE_MAIN = isViewMain;
     }
 
     @NonNull
     @Override
-    public NoteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemContainerNoteBinding binding = ItemContainerNoteBinding.inflate(
-                LayoutInflater.from(parent.getContext()),
-                parent,
-                false);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        if (VIEW_TYPE_MAIN) {
+            return new NoteViewHolderMain(
+                    ItemContainerNoteMainBinding.inflate(
+                            LayoutInflater.from(parent.getContext())
+                            , parent
+                            , false));
 
 
-        return new NoteViewHolder(binding);
+        } else {
+            return new NoteViewHolder(
+                    ItemContainerNoteBinding.inflate(
+                            LayoutInflater.from(parent.getContext())
+                            , parent
+                            , false));
+        }
 
     }
 
 
     @Override
-    public void onBindViewHolder(@NonNull NoteViewHolder holder, int position) {
-        holder.setNoteData(data.get(position));
-        holder.binding.layoutNote.setOnClickListener(v -> modelListener.onNoteClicked(data.get(position), position));
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (VIEW_TYPE_MAIN) {
+            ((NoteViewHolderMain) holder).setNoteData(data.get(position));
+            ((NoteViewHolderMain) holder).binding.layoutNote.setOnClickListener(v -> modelListener.onNoteClicked(data.get(position), position));
+        } else {
+            ((NoteViewHolder) holder).setNoteData(data.get(position));
+            ((NoteViewHolder) holder).binding.layoutNote.setOnClickListener(v -> modelListener.onNoteClicked(data.get(position), position));
+        }
     }
 
     @Override
     public int getItemViewType(int position) {
         return position;
-
     }
 
     @Override
@@ -100,6 +115,27 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
                 gradientDrawable.setColor(Color.parseColor("#333333"));
             }
 
+        }
+    }
+
+    class NoteViewHolderMain extends RecyclerView.ViewHolder {
+        ItemContainerNoteMainBinding binding;
+
+
+        public NoteViewHolderMain(@NonNull ItemContainerNoteMainBinding itemContainerNoteMainBinding) {
+            super(itemContainerNoteMainBinding.getRoot());
+            binding = itemContainerNoteMainBinding;
+        }
+        public void setNoteData(Note model) {
+            binding.noteTitle.setText(model.getTitle());
+            binding.noteDate.setText(model.getDateTime());
+
+            GradientDrawable gradientDrawable = (GradientDrawable) binding.viewSubtitleIndicator.getBackground();
+            if (model.getColor() != null) {
+                gradientDrawable.setColor(Color.parseColor(model.getColor()));
+            } else {
+                gradientDrawable.setColor(Color.parseColor("#333333"));
+            }
         }
     }
 
