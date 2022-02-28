@@ -18,6 +18,7 @@
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_subtitle_indicator.xml" value="0.1" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/background_subtitle_indicator_main.xml" value="0.223" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/button_shape_one.xml" value="0.1955" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/ic_add.xml" value="0.204" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/ic_back.xml" value="0.1" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/ic_done.xml" value="0.1" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/drawable/ic_facebook.xml" value="0.2115" />
@@ -29,7 +30,7 @@
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_create_note.xml" value="0.22895622895622897" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_forget_password.xml" value="0.22" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_forgot_password.xml" value="0.25052083333333336" />
-        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_main.xml" value="0.4466666666666667" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_sign_in.xml" value="0.25052083333333336" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/activity_splash.xml" value="0.22826086956521738" />
@@ -45,6 +46,7 @@
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/layout_add_url.xml" value="0.17552083333333332" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/layout_delete_note.xml" value="0.25052083333333336" />
         <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/layout/layout_miscellaneous.xml" value="0.25052083333333336" />
+        <entry key="..\:/Android/Projects/MyProjects/NoteApp/app/src/main/res/menu/menu_bottom_main.xml" value="0.16666666666666666" />
       </map>
     </option>
   </component>

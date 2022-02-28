@@ -2,25 +2,17 @@ package com.examplez.noteapp.activities;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import android.app.ActivityOptions;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Pair;
-import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -38,8 +30,8 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
     private ActivityMainBinding binding;
     private List<Note> noteList;
     private NoteAdapter noteAdapter;
-    private NoteViewModel noteViewModel;
-    private int noteClickedPosition = -1;
+    NoteViewModel noteViewModel;
+    int noteClickedPosition = -1;
     private AlertDialog addNoteDialog;
 
 
@@ -51,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
         setContentView(binding.getRoot());
         setListeners();
         setRecyclerView();
+
 
         binding.inputSearch.addTextChangedListener(new TextWatcher() {
             @Override
@@ -73,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
 
     }
 
+
     private void showAddNoteDialog() {
         if (addNoteDialog == null) {
 
@@ -91,22 +85,16 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
             chooseTemplate.requestFocus();
 
 
-            view.findViewById(R.id.layoutStartWriting).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(MainActivity.this, "Start Writing", Toast.LENGTH_SHORT).show();
-                    addNoteDialog.dismiss();
+            view.findViewById(R.id.layoutStartWriting).setOnClickListener(v -> {
+                Toast.makeText(MainActivity.this, "Start Writing", Toast.LENGTH_SHORT).show();
+                addNoteDialog.dismiss();
 
-                }
             });
 
-            view.findViewById(R.id.layoutChooseTemplate).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(MainActivity.this, "Choose Template", Toast.LENGTH_SHORT).show();
-                    addNoteDialog.dismiss();
+            view.findViewById(R.id.layoutChooseTemplate).setOnClickListener(v -> {
+                Toast.makeText(MainActivity.this, "Choose Template", Toast.LENGTH_SHORT).show();
+                addNoteDialog.dismiss();
 
-                }
             });
 
 
@@ -118,15 +106,7 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
 
     private void setListeners() {
 //        binding.imageAddNoteMain.setOnClickListener(v -> openActivity(this, CreateNoteActivity.class));
-        binding.imageAddNoteMain.setOnClickListener(v -> showAddNoteDialog());
-
-
-    }
-
-    private void openActivity(Context context, Class activity) {
-        Intent intent = new Intent(context, activity);
-        startActivity(intent);
-
+        binding.addNoteMain.setOnClickListener(v -> showAddNoteDialog());
     }
 
     private void setRecyclerView() {
@@ -144,21 +124,10 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
     @Override
     public void onNoteClicked(Note note, int position) {
         noteClickedPosition = position;
-//        LinearLayout layoutNote = findViewById(R.id.layoutNote);
         Intent intent = new Intent(getApplicationContext(), CreateNoteActivity.class);
         intent.putExtra("isViewOrUpdate", true);
         intent.putExtra("note", note);
-
-//        Pair[] pairs = new Pair[3];
-//        pairs[0] = new Pair<View, String>(layoutNote.findViewById(R.id.imageNoteContainer), "imageTransition");
-//        pairs[1] = new Pair<View, String>(layoutNote.findViewById(R.id.imageNoteContainer), "titleTransition");
-//        pairs[2] = new Pair<View, String>(layoutNote.findViewById(R.id.imageNoteContainer), "subtitleTransition");
-
-//        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, pairs);
         startActivity(intent);
-//        startActivity(intent, options.toBundle());
-
-
     }
 
 
