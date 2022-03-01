@@ -43,7 +43,6 @@
             android:textColor="?attr/text_color_primary"
             android:textColorHint="@color/gray_50"
             android:textSize="@dimen/_13ssp" />
-
     </LinearLayout>
 
 

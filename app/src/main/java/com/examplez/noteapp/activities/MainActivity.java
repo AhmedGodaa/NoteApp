@@ -1,5 +1,7 @@
 package com.examplez.noteapp.activities;
 
+import static com.examplez.noteapp.activities.Godaa.openActivity;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -43,8 +45,12 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
         setContentView(binding.getRoot());
         setListeners();
         setRecyclerView();
+        setSearch();
 
 
+    }
+
+    private void setSearch() {
         binding.inputSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -86,9 +92,8 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
 
 
             view.findViewById(R.id.layoutStartWriting).setOnClickListener(v -> {
-                Toast.makeText(MainActivity.this, "Start Writing", Toast.LENGTH_SHORT).show();
                 addNoteDialog.dismiss();
-
+                openActivity(this, CreateNoteActivity.class);
             });
 
             view.findViewById(R.id.layoutChooseTemplate).setOnClickListener(v -> {
@@ -105,7 +110,6 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
 
 
     private void setListeners() {
-//        binding.imageAddNoteMain.setOnClickListener(v -> openActivity(this, CreateNoteActivity.class));
         binding.addNoteMain.setOnClickListener(v -> showAddNoteDialog());
     }
 
