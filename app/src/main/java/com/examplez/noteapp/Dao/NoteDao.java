@@ -15,14 +15,14 @@ import java.util.List;
 public interface NoteDao {
 
     @Query("SELECT * FROM notes ORDER BY id DESC")
-    public LiveData<List<Note>> getAllNotes();
+    LiveData<List<Note>> getAllNotes();
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void insertNote(Note note);
+    void insertNote(Note note);
 
     @Delete
-    public void deleteNote(Note note);
+    void deleteNote(Note note);
 
 
 }

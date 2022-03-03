@@ -72,7 +72,7 @@
                 tools:layout_editor_absoluteY="117dp">
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/imageAllNotes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_10sdp"
@@ -102,8 +102,8 @@
                     android:text="@string/all_notes"
                     android:textColor="?attr/text_color_primary"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/imageView"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                    app:layout_constraintStart_toStartOf="@+id/imageAllNotes"
+                    app:layout_constraintTop_toBottomOf="@+id/imageAllNotes" />
 
                 <TextView
                     android:id="@+id/textView4"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_200"
+    android:background="?attr/background_color_primary"
     tools:context=".activities.CreateNoteActivity">
 
     <ScrollView
@@ -29,7 +29,7 @@
                 android:src="@drawable/ic_back"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/white" />
+                app:tint="?attr/text_color_primary" />
 
             <ImageView
                 android:id="@+id/imageSave"
@@ -43,7 +43,7 @@
                 app:layout_constraintBottom_toBottomOf="@id/imageBack"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/imageBack"
-                app:tint="@color/white" />
+                app:tint="@color/blue" />
 
             <EditText
                 android:id="@+id/inputNoteTitle"
@@ -59,7 +59,7 @@
                 android:importantForAutofill="no"
                 android:includeFontPadding="false"
                 android:inputType="text"
-                android:textColor="@color/white"
+                android:textColor="?attr/text_color_primary"
                 android:textColorHint="@color/gray_50"
                 android:textSize="@dimen/_16ssp"
                 android:transitionName="titleTransition"
@@ -71,7 +71,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:includeFontPadding="false"
-                android:textColor="@color/white"
+                android:textColor="@color/blue"
                 android:textSize="@dimen/_10ssp"
                 app:layout_constraintEnd_toEndOf="@id/inputNoteTitle"
                 app:layout_constraintStart_toStartOf="@id/inputNoteTitle"
@@ -187,7 +187,7 @@
                 android:includeFontPadding="false"
                 android:inputType="textMultiLine"
                 android:minHeight="@dimen/_100sdp"
-                android:textColor="@color/white"
+                android:textColor="?attr/text_color_primary"
                 android:textColorHint="@color/gray_50"
                 android:textSize="@dimen/_13ssp"
                 app:layout_constraintBottom_toBottomOf="parent"

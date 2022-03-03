@@ -1,7 +1,7 @@
 package com.examplez.noteapp.activities;
 
-import static com.examplez.noteapp.activities.Godaa.implementTheme;
 import static com.examplez.noteapp.activities.Godaa.openActivity;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -21,7 +21,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        implementTheme(WelcomeActivity.this);
+        Godaa.getTheme(WelcomeActivity.this);
         super.onCreate(savedInstanceState);
         binding = ActivityWelcomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

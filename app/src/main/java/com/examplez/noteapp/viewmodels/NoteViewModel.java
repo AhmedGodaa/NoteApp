@@ -13,7 +13,7 @@ import java.util.List;
 
 
 public class NoteViewModel extends AndroidViewModel {
-    private NoteRepository noteRepository;
+    NoteRepository noteRepository;
 
 
     public NoteViewModel(@NonNull Application application) {

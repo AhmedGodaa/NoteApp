@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.examplez.noteapp.R;
 import com.examplez.noteapp.adapters.NoteAdapter;
 import com.examplez.noteapp.databinding.ActivityMainBinding;
+import com.examplez.noteapp.databinding.ActivitySettingBinding;
 import com.examplez.noteapp.entities.Note;
 import com.examplez.noteapp.listeners.NoteListener;
 import com.examplez.noteapp.viewmodels.NoteViewModel;
@@ -39,10 +40,12 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Godaa.implementTheme(MainActivity.this);
+        Godaa.getTheme(MainActivity.this);
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        noteList = new ArrayList<>();
+        noteAdapter = new NoteAdapter(noteList, this, true);
         setListeners();
         setRecyclerView();
         setSearch();
@@ -111,10 +114,13 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
 
     private void setListeners() {
         binding.addNoteMain.setOnClickListener(v -> showAddNoteDialog());
+        binding.imageAllNotes.setOnClickListener(v -> openActivity(this, NotesActivity.class));
+        binding.imageView2.setOnClickListener(v -> {
+            openActivity(this, SettingsActivity.class);
+        });
     }
 
     private void setRecyclerView() {
-        noteList = new ArrayList<>();
         noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
         noteViewModel.getAllNotes().observe(this, notes -> {
             noteList = notes;

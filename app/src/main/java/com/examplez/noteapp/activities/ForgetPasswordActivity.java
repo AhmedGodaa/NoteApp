@@ -1,7 +1,5 @@
 package com.examplez.noteapp.activities;
 
-import static com.examplez.noteapp.activities.Godaa.implementTheme;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -13,7 +11,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        implementTheme(ForgetPasswordActivity.this);
+        Godaa.getTheme(ForgetPasswordActivity.this);
         super.onCreate(savedInstanceState);
         binding = ActivityForgetPasswordBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

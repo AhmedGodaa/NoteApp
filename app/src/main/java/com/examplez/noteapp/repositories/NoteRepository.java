@@ -25,17 +25,13 @@ public class NoteRepository {
 
 
     public void insertNote(Note note) {
-        NoteDatabase.databaseWriteExecutor.execute(() -> {
-            noteDao.insertNote(note);
-        });
+        NoteDatabase.databaseWriteExecutor.execute(() -> noteDao.insertNote(note));
 
 
     }
 
     public void deleteNote(Note note) {
-        NoteDatabase.databaseWriteExecutor.execute(() -> {
-            noteDao.deleteNote(note);
-        });
+        NoteDatabase.databaseWriteExecutor.execute(() -> noteDao.deleteNote(note));
 
     }
 

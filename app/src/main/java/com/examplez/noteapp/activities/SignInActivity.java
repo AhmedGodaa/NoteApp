@@ -13,8 +13,8 @@ public class SignInActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Godaa.implementTheme(SignInActivity.this);
-        firstOpen();
+//        firstOpen();
+        Godaa.getTheme(SignInActivity.this);
         super.onCreate(savedInstanceState);
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -27,18 +27,18 @@ public class SignInActivity extends AppCompatActivity {
         binding.btnSignIn.setOnClickListener(v -> openActivity(SignInActivity.this, MainActivity.class));
     }
 
-    private void firstOpen() {
-        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-                .getBoolean("isFirstRun", true);
-
-        if (isFirstRun) {
-            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
-                    .putBoolean("isFirstRun", false).commit();
-            openActivity(this, WelcomeActivity.class);
-            finish();
-        }
-
-    }
+//    private void firstOpen() {
+//        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
+//                .getBoolean("isFirstRun", true);
+//
+//        if (isFirstRun) {
+//            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
+//                    .putBoolean("isFirstRun", false).commit();
+//            openActivity(this, WelcomeActivity.class);
+//            finish();
+//        }
+//
+//    }
 
 
 }

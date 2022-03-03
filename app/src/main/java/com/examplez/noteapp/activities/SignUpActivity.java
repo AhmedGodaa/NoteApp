@@ -15,7 +15,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Godaa.implementTheme(getApplicationContext());
+        Godaa.getTheme(SignUpActivity.this);
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
             setTheme(R.style.Theme_Night);
         } else {

@@ -66,7 +66,7 @@ public class WelcomeFragmentThird extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Godaa.implementTheme(getContext());
+        Godaa.getTheme(requireContext());
         binding = FragmentWelcomeThirdBinding.inflate(getLayoutInflater());
         binding.btnSignIn.setOnClickListener(v -> openActivity(getContext(), SignInActivity.class));
         binding.btnSignUp.setOnClickListener(v -> openActivity(getContext(), SignUpActivity.class));
