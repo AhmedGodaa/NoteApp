@@ -198,20 +198,27 @@
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:maxWidth="@dimen/_40sdp"
         app:backgroundColor="?attr/background_color_primary"
         app:cornerRadius="16dp"
         app:corners="top_left|bottom_right|bottom_left|top_right"
-        app:iconSize="15dp"
+        app:iconGravity="end"
+        app:iconMargin="@dimen/_20sdp"
+        app:iconPadding="200dp"
+        app:iconSize="@dimen/_20sdp"
+
         app:iconTint="@color/gray_50"
         app:iconTintActive="#FFFFFF"
         app:indicatorColor="@color/blue"
         app:indicatorRadius="16dp"
         app:itemPadding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_bottom_main"
         app:sideMargins="10dp"
+
         app:textColor="@color/white"
         app:textSize="@dimen/_13sdp" />
 

@@ -33,7 +33,7 @@ android {
 
 dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    def room_version = "2.4.1"
+    def room_version = "2.4.2"
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
@@ -46,7 +46,7 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
     // optional - Paging 3 Integration
-    implementation "androidx.room:room-paging:2.4.1"
+    implementation "androidx.room:room-paging:2.4.2"
 
     //Scalable Size units
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
@@ -60,6 +60,10 @@ dependencies {
 
     //SmoothBottomBar
     implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.9'
+
+    // Retrofit & Design
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 
 
 }
