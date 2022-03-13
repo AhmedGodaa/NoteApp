@@ -11,7 +11,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Godaa.getTheme(ForgetPasswordActivity.this);
+        Godaa.Companion.getTheme(ForgetPasswordActivity.this);
         super.onCreate(savedInstanceState);
         binding = ActivityForgetPasswordBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

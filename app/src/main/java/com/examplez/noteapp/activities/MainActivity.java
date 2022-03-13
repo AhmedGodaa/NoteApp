@@ -1,6 +1,5 @@
 package com.examplez.noteapp.activities;
 
-import static com.examplez.noteapp.activities.Godaa.openActivity;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,10 +17,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.examplez.noteapp.activities.Godaa;
+
 import com.examplez.noteapp.R;
 import com.examplez.noteapp.adapters.NoteAdapter;
 import com.examplez.noteapp.databinding.ActivityMainBinding;
-import com.examplez.noteapp.databinding.ActivitySettingBinding;
 import com.examplez.noteapp.entities.Note;
 import com.examplez.noteapp.listeners.NoteListener;
 import com.examplez.noteapp.viewmodels.NoteViewModel;
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Godaa.getTheme(MainActivity.this);
+        Godaa.Companion.getTheme(MainActivity.this);
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
 
             view.findViewById(R.id.layoutStartWriting).setOnClickListener(v -> {
                 addNoteDialog.dismiss();
-                openActivity(this, CreateNoteActivity.class);
+                Godaa.Companion.openActivity(this, CreateNoteActivity.class);
             });
 
             view.findViewById(R.id.layoutChooseTemplate).setOnClickListener(v -> {
@@ -114,9 +114,9 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
 
     private void setListeners() {
         binding.addNoteMain.setOnClickListener(v -> showAddNoteDialog());
-        binding.imageAllNotes.setOnClickListener(v -> openActivity(this, NotesActivity.class));
+        binding.imageAllNotes.setOnClickListener(v -> Godaa.Companion.openActivity(this, NotesActivity.class));
         binding.imageView2.setOnClickListener(v -> {
-            openActivity(this, SettingsActivity.class);
+            Godaa.Companion.openActivity(this, SettingsActivity.class);
         });
     }
 

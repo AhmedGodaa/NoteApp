@@ -11,7 +11,10 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Light">
+        android:theme="@style/splashScreenTheme">
+        <activity
+            android:name=".activities.KotlinActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.SettingsActivity"
             android:exported="false" />
@@ -26,9 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.SignInActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
         <activity
             android:name=".activities.WelcomeActivity"
             android:exported="true">

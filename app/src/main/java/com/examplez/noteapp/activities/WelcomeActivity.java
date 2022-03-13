@@ -1,7 +1,5 @@
 package com.examplez.noteapp.activities;
 
-import static com.examplez.noteapp.activities.Godaa.openActivity;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
@@ -21,7 +19,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Godaa.getTheme(WelcomeActivity.this);
+        Godaa.Companion.getTheme(WelcomeActivity.this);
         super.onCreate(savedInstanceState);
         binding = ActivityWelcomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -37,7 +35,7 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void setListeners() {
-        binding.btnSkip.setOnClickListener(v -> openActivity(getApplicationContext(), SignInActivity.class));
+        binding.btnSkip.setOnClickListener(v -> Godaa.Companion.openActivity(getApplicationContext(), SignInActivity.class));
     }
 
 

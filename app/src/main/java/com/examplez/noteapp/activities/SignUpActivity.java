@@ -1,7 +1,5 @@
 package com.examplez.noteapp.activities;
 
-import static com.examplez.noteapp.activities.Godaa.openActivity;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
@@ -15,7 +13,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Godaa.getTheme(SignUpActivity.this);
+        Godaa.Companion.getTheme(SignUpActivity.this);
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
             setTheme(R.style.Theme_Night);
         } else {
@@ -29,7 +27,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void setListeners() {
-        binding.layoutHaveAccount.setOnClickListener(v -> openActivity(getApplicationContext(), SignInActivity.class));
+        binding.layoutHaveAccount.setOnClickListener(v -> Godaa.Companion.openActivity(getApplicationContext(), SignInActivity.class));
 
     }
 

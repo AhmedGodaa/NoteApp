@@ -1,12 +1,11 @@
 package com.examplez.noteapp.activities;
 
-import static com.examplez.noteapp.activities.Godaa.openActivity;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
 import com.examplez.noteapp.databinding.ActivitySignInBinding;
+import com.examplez.noteapp.utilities.Constants;
 
 public class SignInActivity extends AppCompatActivity {
     private ActivitySignInBinding binding;
@@ -14,7 +13,7 @@ public class SignInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 //        firstOpen();
-        Godaa.getTheme(SignInActivity.this);
+        Godaa.Companion.getTheme(SignInActivity.this);
         super.onCreate(savedInstanceState);
         binding = ActivitySignInBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -23,8 +22,8 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void setListeners() {
-        binding.textForgetPassword.setOnClickListener(v -> openActivity(SignInActivity.this, ForgetPasswordActivity.class));
-        binding.btnSignIn.setOnClickListener(v -> openActivity(SignInActivity.this, MainActivity.class));
+        binding.textForgetPassword.setOnClickListener(v -> Godaa.Companion.openActivity(SignInActivity.this, ForgetPasswordActivity.class));
+        binding.btnSignIn.setOnClickListener(v -> Godaa.Companion.openActivity(SignInActivity.this, MainActivity.class));
     }
 
 //    private void firstOpen() {

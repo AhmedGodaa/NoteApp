@@ -55,6 +55,7 @@ public class CreateNoteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Godaa.Companion.getTheme(CreateNoteActivity.this);
         super.onCreate(savedInstanceState);
         binding = ActivityCreateNoteBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

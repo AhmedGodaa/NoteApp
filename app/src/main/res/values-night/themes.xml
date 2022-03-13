@@ -17,8 +17,7 @@
         <item name="background_color_primary">@color/backgroundPrimaryDark</item>
         <item name="background_color_secondary">@color/backgroundSecondaryDark</item>
         <item name="text_color_primary">@color/textPrimaryDark</item>
-        <!-- Splash Screen -->
-        <item name="android:windowBackground">@drawable/splash</item>
+
 
     </style>
 </resources>

@@ -20,8 +20,14 @@
         <item name="background_color_secondary">@color/backgroundSecondaryLight</item>
         <item name="text_color_primary">@color/textPrimaryLight</item>
         <!-- Splash Screen -->
-        <item name="android:windowBackground">@drawable/splash</item>
 
+
+
+    </style>
+
+    <style name="splashScreenTheme" parent="Theme.MaterialComponents.Light">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@drawable/splash</item>
 
     </style>
 </resources>

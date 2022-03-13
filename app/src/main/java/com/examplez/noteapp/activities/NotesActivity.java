@@ -27,7 +27,7 @@ public class NotesActivity extends AppCompatActivity implements NoteListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Godaa.getTheme(NotesActivity.this);
+        Godaa.Companion.getTheme(NotesActivity.this);
         super.onCreate(savedInstanceState);
         binding = ActivityNotesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
