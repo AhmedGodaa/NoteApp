@@ -24,6 +24,8 @@ import com.examplez.noteapp.adapters.NoteAdapter;
 import com.examplez.noteapp.databinding.ActivityMainBinding;
 import com.examplez.noteapp.entities.Note;
 import com.examplez.noteapp.listeners.NoteListener;
+import com.examplez.noteapp.utilities.Constants;
+import com.examplez.noteapp.utilities.PreferencesManager;
 import com.examplez.noteapp.viewmodels.NoteViewModel;
 
 import java.util.ArrayList;
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
     NoteViewModel noteViewModel;
     int noteClickedPosition = -1;
     private AlertDialog addNoteDialog;
+    private PreferencesManager preferencesManager;
 
 
     @Override
@@ -44,11 +47,13 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        preferencesManager = new PreferencesManager(this);
         noteList = new ArrayList<>();
         noteAdapter = new NoteAdapter(noteList, this, true);
         setListeners();
         setRecyclerView();
         setSearch();
+        Toast.makeText(this, preferencesManager.getString(Constants.KEY_USERNAME), Toast.LENGTH_SHORT).show();
 
 
     }

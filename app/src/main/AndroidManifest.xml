@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.examplez.noteapp">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/splashScreenTheme">
-        <activity
-            android:name=".activities.KotlinActivity"
-            android:exported="false" />
+        android:theme="@style/splashScreenTheme"
+        tools:targetApi="m">
+
         <activity
             android:name=".activities.SettingsActivity"
             android:exported="false" />
@@ -29,7 +31,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.SignInActivity"
-            android:exported="false"></activity>
+            android:exported="false"/>
         <activity
             android:name=".activities.WelcomeActivity"
             android:exported="true">
