@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
         setListeners();
         setRecyclerView();
         setSearch();
-        Toast.makeText(this, preferencesManager.getString(Constants.KEY_USERNAME), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, preferencesManager.getString(Constants.KEY_USERNAME), Toast.LENGTH_SHORT).show();
 
 
     }

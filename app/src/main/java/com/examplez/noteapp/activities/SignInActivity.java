@@ -21,7 +21,7 @@ public class SignInActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        firstOpen();
+
         Godaa.Companion.getTheme(SignInActivity.this);
         super.onCreate(savedInstanceState);
         signInViewModel = new ViewModelProvider(this).get(SignInViewModel.class);
@@ -34,7 +34,7 @@ public class SignInActivity extends AppCompatActivity {
 
     private void setListeners() {
         binding.textForgetPassword.setOnClickListener(v -> Godaa.Companion.openActivity(SignInActivity.this, ForgetPasswordActivity.class));
-        binding.btnSignIn.setOnClickListener(v -> signIn());
+        binding.btnSignIn.setOnClickListener(v -> Godaa.Companion.openActivity(SignInActivity.this,MainActivity.class));
     }
 
     private void signIn() {
@@ -54,18 +54,7 @@ public class SignInActivity extends AppCompatActivity {
 
     }
 
-//    private void firstOpen() {
-//        Boolean isFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE)
-//                .getBoolean("isFirstRun", true);
-//
-//        if (isFirstRun) {
-//            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit()
-//                    .putBoolean("isFirstRun", false).commit();
-//            openActivity(this, WelcomeActivity.class);
-//            finish();
-//        }
-//
-//    }
+
 
 
 }
