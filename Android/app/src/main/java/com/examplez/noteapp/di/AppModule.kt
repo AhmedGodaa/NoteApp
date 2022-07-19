@@ -6,6 +6,7 @@ import com.examplez.noteapp.common.Constants
 import com.examplez.noteapp.data.db.NoteDB
 import com.examplez.noteapp.data.repository.NoteRepoImpl
 import com.examplez.noteapp.domain.repository.NoteRepo
+import com.examplez.noteapp.domain.use_case.AddNote
 import com.examplez.noteapp.domain.use_case.DeleteNote
 import com.examplez.noteapp.domain.use_case.GetNotes
 import com.examplez.noteapp.domain.use_case.NoteUseCases
@@ -43,7 +44,8 @@ object AppModule {
     fun providesUseCases(repo: NoteRepo): NoteUseCases {
         return NoteUseCases(
             getNotes = GetNotes(repo),
-            deleteNote = DeleteNote(repo)
+            deleteNote = DeleteNote(repo),
+            addNote = AddNote(repo)
 
         )
     }

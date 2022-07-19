@@ -26,8 +26,8 @@ import com.examplez.noteapp.presentation.note.NoteListener;
 import com.examplez.noteapp.common.Constants;
 import com.examplez.noteapp.common.PreferencesManager;
 import com.examplez.noteapp.presentation.note.CreateNoteActivity;
-import com.examplez.noteapp.presentation.note.NoteViewModel;
 import com.examplez.noteapp.presentation.note.NotesActivity;
+import com.examplez.noteapp.presentation.note.NotesViewModel;
 import com.examplez.noteapp.presentation.settings.SettingsActivity;
 
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
     private ActivityMainBinding binding;
     private List<Note> noteList;
     private NoteAdapter noteAdapter;
-    NoteViewModel noteViewModel;
+    NotesViewModel noteViewModel;
     int noteClickedPosition = -1;
     private AlertDialog addNoteDialog;
     private PreferencesManager preferencesManager;
