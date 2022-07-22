@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.examplez.noteapp.R;
 import com.examplez.noteapp.common.Godaa;
-import com.examplez.noteapp.presentation.MainActivity;
+import com.examplez.noteapp.presentation.activities.MainActivity;
 import com.examplez.noteapp.presentation.welcome.TabAccessorAdapter;
 import com.examplez.noteapp.databinding.ActivityWelcomeBinding;
 import com.examplez.noteapp.common.Constants;

@@ -1,3 +1,0 @@
-# backend
-
-hello from backend

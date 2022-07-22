@@ -1,4 +1,4 @@
-package com.examplez.noteapp.presentation;
+package com.examplez.noteapp.presentation.activities;
 
 
 import androidx.appcompat.app.AlertDialog;
@@ -19,6 +19,8 @@ import android.widget.Toast;
 
 import com.examplez.noteapp.R;
 import com.examplez.noteapp.common.Godaa;
+import com.examplez.noteapp.domain.util.NoteOrder;
+import com.examplez.noteapp.domain.util.OrderType;
 import com.examplez.noteapp.presentation.note.NoteAdapter;
 import com.examplez.noteapp.databinding.ActivityMainBinding;
 import com.examplez.noteapp.domain.model.Note;
@@ -35,12 +37,12 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NoteListener {
     private ActivityMainBinding binding;
-    private List<Note> noteList;
+    private List<Note> noteList = new ArrayList<>();
     private NoteAdapter noteAdapter;
     NotesViewModel noteViewModel;
     int noteClickedPosition = -1;
     private AlertDialog addNoteDialog;
-    private PreferencesManager preferencesManager;
+    PreferencesManager preferencesManager;
 
 
     @Override
@@ -50,7 +52,8 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         preferencesManager = new PreferencesManager(this);
-        noteList = new ArrayList<>();
+        noteViewModel = new ViewModelProvider(this).get(NotesViewModel.class);
+
         noteAdapter = new NoteAdapter(noteList, this, true);
         setListeners();
         setRecyclerView();
@@ -81,6 +84,14 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
         });
 
     }
+
+
+    private void setListeners() {
+        binding.addNoteMain.setOnClickListener(v -> showAddNoteDialog());
+        binding.imageAllNotes.setOnClickListener(v -> Godaa.Companion.openActivity(this, NotesActivity.class));
+        binding.imageView2.setOnClickListener(v -> Godaa.Companion.openActivity(this, SettingsActivity.class));
+    }
+
 
 
     private void showAddNoteDialog() {
@@ -119,17 +130,9 @@ public class MainActivity extends AppCompatActivity implements NoteListener {
     }
 
 
-    private void setListeners() {
-        binding.addNoteMain.setOnClickListener(v -> showAddNoteDialog());
-        binding.imageAllNotes.setOnClickListener(v -> Godaa.Companion.openActivity(this, NotesActivity.class));
-        binding.imageView2.setOnClickListener(v -> {
-            Godaa.Companion.openActivity(this, SettingsActivity.class);
-        });
-    }
-
     private void setRecyclerView() {
-        noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
-        noteViewModel.getAllNotes().observe(this, notes -> {
+
+        noteViewModel.getNotes(NoteOrder.Title(OrderType.Descending)).observe(this, notes -> {
             noteList = notes;
             noteAdapter = new NoteAdapter(notes, this, true);
             binding.notesRecyclerView.setAdapter(noteAdapter);

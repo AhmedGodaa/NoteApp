@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.examplez.noteapp.presentation.forgetpassword.ForgetPasswordActivity;
 import com.examplez.noteapp.common.Godaa;
-import com.examplez.noteapp.presentation.MainActivity;
+import com.examplez.noteapp.presentation.activities.MainActivity;
 import com.examplez.noteapp.databinding.ActivitySignInBinding;
 import com.examplez.noteapp.domain.model.User;
 import com.examplez.noteapp.common.Constants;
